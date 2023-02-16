@@ -442,7 +442,7 @@
 
         const chatScript = document.createElement('script');
         chatScript.setAttribute('async', 'true');
-        chatScript.setAttribute('src',`https://grispiapp.github.io/chat.js/chat.js?tenantId=${params.tenantId}&debug=true`);
+        chatScript.setAttribute('src',`https://grispiapp.github.io/chat.js/chat.js?tenantId=${params.tenantId}&env=preprod&debug=true`);
         document.head.appendChild(chatScript);
 
         actionButtons.style.display = 'block';
