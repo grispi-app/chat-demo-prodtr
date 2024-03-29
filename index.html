@@ -433,22 +433,18 @@
     const lipsum = document.getElementById("lipsum");
     const actionButtons = document.getElementById("action-buttons");
 
+</script>
+<script src="https://grispi.app/chat-widget/chat-widget.js"></script>
+<script>
     const params = new Proxy(new URLSearchParams(window.location.search), {
         get: (searchParams, prop) => searchParams.get(prop),
     });
-
-    if (params.tenantId) {
-        lipsum.style.display = 'block';
-
-        const chatScript = document.createElement('script');
-        chatScript.setAttribute('async', 'true');
-        chatScript.setAttribute('src',`https://grispiapp.github.io/chat.js/chat.js?tenantId=${params.tenantId}&env=preprod&debug=true`);
-        document.head.appendChild(chatScript);
-
-        actionButtons.style.display = 'block';
-    } else {
-        configForm.style.display = 'block';
-    }
+    
+  GrispiChat.create({
+    tenantId: params.tenantId,
+    debug: true,
+    environment: 'preprod'
+  });
 </script>
 <!--<script async src="https://grispiapp.github.io/chat.js/chat.js?tenantId=democorp&env=preprod&debug=true"></script>-->
 </body>
